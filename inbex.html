@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>پکیج بازی ساده PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Arial; display:flex; flex-direction:column; align-items:center; margin:0; padding:20px; background:linear-gradient(135deg,#89f7fe,#66a6ff); color:#fff; }
+    h1 { margin:16px 0; }
+    button { padding:10px 14px; margin:8px; font-size:16px; border:none; border-radius:8px; background:#ff6b6b; color:#fff; cursor:pointer; }
+    #gameContainer{ width:100%; max-width:720px; margin-top:12px; display:flex; flex-direction:column; align-items:center; color:#111; background:rgba(255,255,255,0.95); padding:12px; border-radius:10px; }
+    label{ margin-top:8px; }
+  </style>
+</head>
+<body>
+<h1>پکیج بازی ساده</h1>
+<div id="menu">
+  <button onclick="startGame('xo')">XO (تیک-تاک-تو)</button>
+  <button onclick="startGame('snakes')">مار و پله</button>
+  <button onclick="startGame('ludo')">منچ</button>
+</div>
+<div id="gameContainer"></div>
+<script src="main.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').then(()=>console.log('SW registered')).catch(()=>{});
+}
+</script>
+</body>
+</html>
